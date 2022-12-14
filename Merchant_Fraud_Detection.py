@@ -1,21 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 25 13:11:55 2022 by Paul
-
-Task List
-1) Find ID of compromised merchant -> M18
-    Hint: Need to look for defrauded accounts
-    Hint: Then find days where a high number of accounts transacted w/a merchant
-2) Supply date(s) of compromise -> 2015-01-16
-3) Supply date(s) of exploitation -> 21-23
-"""
 #%% Imports
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 #Read in original data
-df = pd.read_csv('PreInterviewTaskData.csv')
+df = pd.read_csv('MerchantData.csv')
 
 #Review data quality
 df.describe()
@@ -45,7 +34,8 @@ plt.show()
 h=account_interactions.nlargest(10, 'account')
 
 h.index[0][0]
-#%% Solution Verification
+
+#%% Harvest & Exploit Visuals
 """
 Show that if the accounts were not transacted on day w/merchant that 
 fraud amounts would be drastically lowered
