@@ -4,4 +4,4 @@ In the given data set a merchant was compromised by a fraudster and turned into 
 This script generates visuals to identify the compromised merchant, compromise period, and exploit period.
 
 ## Update Image Path
-![](/images/Unique Account Interactions per Day.JPG)
+![](/images/Unique Account Interactions per Day.png)
