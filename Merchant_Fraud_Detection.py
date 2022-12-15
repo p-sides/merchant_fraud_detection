@@ -7,14 +7,14 @@ import seaborn as sns
 df = pd.read_csv('MerchantData.csv')
 
 #Review data quality
-df.describe()
-df.info()
+print(df.describe())
+print(df.info())
 
 #Verify no missing information
-df['account'].isna().sum()
-df['merchant'].isna().sum()
-df['date'].isna().sum()
-df['fraud'].isna().sum()
+print(df['account'].isna().sum())
+print(df['merchant'].isna().sum())
+print(df['date'].isna().sum())
+print(df['fraud'].isna().sum())
 
 #Limit data to only frauded accounts
 df = df[df['account'].isin(df[df['fraud']==True]['account'].unique())]
@@ -32,8 +32,7 @@ plt.show()
 
 #Obtain top 10 instances of the most account interactions at a merchant
 h=account_interactions.nlargest(10, 'account')
-
-h.index[0][0]
+print(h)
 
 #%% Harvest & Exploit Visuals
 """
@@ -58,7 +57,7 @@ for i in range(len(h)):
                  ax=ax[0])
     
     #Axis & title labels, harvest date reference line
-    ax[0].set_title('Daily Total Transactions', fontsize=15)
+    ax[0].set_title('Daily Total Transactions for Merchant', fontsize=15)
     ax[0].set_xlabel(None)
     ax[0].tick_params(rotation=90)
     ax[0].set_ylabel('Count of Total Transcations', fontsize=15)
@@ -70,13 +69,14 @@ for i in range(len(h)):
                  x='date',
                  ax=ax[1])
     
-    #Axis & title labels, harvest date reference line
-    ax[1].set_title('Daily Fraudulent Transactions', fontsize=15)
+    #Axis & title labels
+    ax[1].set_title('Daily Fraudulent Transactions of Compromised Accounts',
+                    fontsize=15)
     ax[1].set_xlabel(None)
     ax[1].tick_params(rotation=90)
     ax[1].set_ylabel('Count of Fraudulent Transcations', fontsize=15)
 
     #Overall Title
-    f.suptitle(f'Merchant: {m}', fontsize=20)
+    f.suptitle(f'Merchant: {m}  |  Suspect Harvest Date: {d}', fontsize=20)
+    f.tight_layout()
     plt.show()
-
