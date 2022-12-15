@@ -10,4 +10,4 @@ The date of compromise can be identified by a sudden increase in transactions of
 This script generates visuals to flag suspect daily transaction rates and identify the compromised merchant, compromise period, and exploit period.
 
 ## Visual Format for Merchant Investigation
-![](/images/M54.png)
+![](/images/M54_Investigation.png)
